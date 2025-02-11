@@ -3,11 +3,7 @@ class Solution {
         int[] ans=new int[nums.length];
         if(nums.length>2){
         ans[0]=nums[0];
-        if(nums[0]>nums[1]){
-        ans[1]=nums[0];
-        }else{
-            ans[1]=nums[1];
-        }
+        ans[1]=Math.max(nums[0],nums[1]);
         }else{
             Arrays.sort(nums);
             return nums[nums.length-1];
