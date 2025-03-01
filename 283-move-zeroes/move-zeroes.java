@@ -7,13 +7,10 @@ class Solution {
                 nums[j]=nums[i];
                 nums[i]=temp;
                 j++;
-            } 
-            if(nums[i]==0 && nums[j]==0){
-                j=j;
-            }else{
+            }
+            if(nums[i]!=0 && nums[j]!=0){
                 j++;
             }
-
         }
     }
 }
