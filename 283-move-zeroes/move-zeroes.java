@@ -8,7 +8,7 @@ class Solution {
                 nums[i]=temp;
                 j++;
             }
-            if(nums[i]!=0 && nums[j]!=0){
+            if(nums[j]!=0){
                 j++;
             }
         }
