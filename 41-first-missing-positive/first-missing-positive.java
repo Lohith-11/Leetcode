@@ -6,12 +6,6 @@ class Solution {
             map.put(nums[i],1);
         }
         TreeMap<Integer,Integer> set=new TreeMap<>(map);
-        if(nums.length==1 && nums[0]!=1){
-            return 1;
-        }
-        if(nums[0]>1){
-            return 1;
-        }
         if(!set.containsKey(1)){
             return 1;
         }
