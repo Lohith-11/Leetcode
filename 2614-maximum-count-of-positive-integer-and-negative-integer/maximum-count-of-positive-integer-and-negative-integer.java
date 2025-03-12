@@ -9,6 +9,11 @@ class Solution {
                 neg++;
             }
         }
-        return pos<neg?neg:pos;
+        if(neg>pos){
+            return neg;
+        }else{
+            return pos;
+        }
+
     }
 }
