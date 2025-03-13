@@ -1,31 +1,29 @@
 class Solution {
     public int minZeroArray(int[] nums, int[][] queries) {
-        int n = nums.length;
-        
-        if (Arrays.stream(nums).allMatch(x -> x == 0)) return 0;
-        int left = 1, right = queries.length;
-        if (!canMakeZeroArray(right, nums, queries)) return -1;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (canMakeZeroArray(mid, nums, queries)) right = mid;
-            else left = mid + 1;
-        }
-        return left;
-    }
+        int n=nums.length;
+        int[] diff=new int[n+1];
+        int sum=0;
+        int pos=0;
+        for(int i=0;i<n;i++){
+            while(sum+diff[i]<nums[i]){
+                if(pos==queries.length){
+                    return -1;
+                }
 
-    private boolean canMakeZeroArray(int k, int[] nums, int[][] queries) {
-        int n = nums.length;
-        int[] diff = new int[n + 1];
-        for (int i = 0; i < k; i++) {
-            int left = queries[i][0], right = queries[i][1], val = queries[i][2];
-            diff[left] += val;
-            diff[right + 1] -= val;
+                int start=queries[pos][0];
+                int end=queries[pos][1];
+                int val=queries[pos][2];
+                pos++;
+                if(end<i){
+                    continue;
+                }
+                diff[Math.max(start,i)]+=val;
+                if(end+1<n){
+                    diff[end+1]-=val;
+                }
+            }
+            sum+=diff[i];
         }
-        int currVal = 0;
-        for (int i = 0; i < n; i++) {
-            currVal += diff[i];
-            if (currVal < nums[i]) return false;
-        }
-        return true;
+        return pos;
     }
 }
