@@ -13,7 +13,7 @@ class Solution {
                 j++;
             }else{
                 j++;
-            i--;
+                i--;
             }
         }
         return count;
