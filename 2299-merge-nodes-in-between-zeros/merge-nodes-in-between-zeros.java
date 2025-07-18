@@ -10,9 +10,8 @@
  */
 class Solution {
     public ListNode mergeNodes(ListNode head) {
-        ListNode left=head.next;
         ListNode right=head.next;
-        ListNode prev=head;
+        ListNode left=head;
         int ans=0;
         while(right!=null){
             if(right.val!=0){
@@ -20,14 +19,9 @@ class Solution {
                 right=right.next;
             }else{
                 ListNode temp=new ListNode(ans);
-                if(left==head){
-                    head=temp;
-                }else{
-                    prev.next=temp;
-                    prev=prev.next;
-                }
+                left.next=temp;
+                left=left.next;
                 ans=0;
-                left=prev.next;
                 right=right.next;
             }
         }
