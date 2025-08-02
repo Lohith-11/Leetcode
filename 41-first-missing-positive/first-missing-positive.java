@@ -11,8 +11,7 @@ class Solution {
         }
         System.out.println(set);
         for(int key : set.keySet()){
-            System.out.println(key);
-            
+            System.out.println(key);            
             if(key>0 && !set.containsKey(key+1)){
                 return key+1;
             }
